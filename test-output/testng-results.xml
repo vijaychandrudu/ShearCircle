@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="51686" started-at="2017-10-12T18:45:37Z" finished-at="2017-10-12T18:46:29Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="51686" started-at="2017-10-12T18:45:37Z" finished-at="2017-10-12T18:46:29Z">
+      <class name="com.ShearCircle.TestScenarios.SubscriberLogin">
+        <test-method status="PASS" signature="beforeclass(java.lang.String)[pri:0, instance:com.ShearCircle.TestScenarios.SubscriberLogin@6a41eaa2]" name="beforeclass" is-config="true" duration-ms="14451" started-at="2017-10-13T00:15:37Z" finished-at="2017-10-13T00:15:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeclass -->
+        <test-method status="PASS" signature="LoginAsSubscriber()[pri:0, instance:com.ShearCircle.TestScenarios.SubscriberLogin@6a41eaa2]" name="LoginAsSubscriber" duration-ms="33663" started-at="2017-10-13T00:15:52Z" finished-at="2017-10-13T00:16:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginAsSubscriber -->
+        <test-method status="PASS" signature="StatusScreenShots(org.testng.ITestResult)[pri:0, instance:com.ShearCircle.TestScenarios.SubscriberLogin@6a41eaa2]" name="StatusScreenShots" is-config="true" duration-ms="3536" started-at="2017-10-13T00:16:25Z" finished-at="2017-10-13T00:16:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=LoginAsSubscriber status=SUCCESS method=SubscriberLogin.LoginAsSubscriber()[pri:0, instance:com.ShearCircle.TestScenarios.SubscriberLogin@6a41eaa2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StatusScreenShots -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.ShearCircle.TestScenarios.SubscriberLogin@6a41eaa2]" name="afterClass" is-config="true" duration-ms="0" started-at="2017-10-13T00:16:29Z" finished-at="2017-10-13T00:16:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.ShearCircle.TestScenarios.SubscriberLogin -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
