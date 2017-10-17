@@ -7,23 +7,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 
-import com.ShearCircle.ObjectRepository.Customer_Registration_Page_Objects;
+import com.ShearCircle.ObjectRepository.Customer_Module_Page_Objects;
 import com.ShearCircle.ObjectRepository.Login_page_objects;
 import com.ShearCircle.Utilities.StaticVariables;
 import com.ShearCircle.Utilities.Web_Browser;
 
-public class Customer_Registration_Page_Components extends StaticVariables {
+public class Customer_Module_Page_Components extends StaticVariables {
 	
 	//public static WebDriver driver;
-	public Customer_Registration_Page_Objects SCRegistration;
+	public Customer_Module_Page_Objects SCRegistration;
 	public Login_page_objects Login;
 	public Web_Browser browser;	
 	String TestDataPath = null;
-	public Customer_Registration_Page_Components() throws IOException {			
+	public Customer_Module_Page_Components() throws IOException {			
 		browser = new Web_Browser(driver);
 		//System.out.println(driver.getWindowHandle());
 		TestDataPath = browser.TestDataPathOf("CustomerTestData.properties");
-		SCRegistration = PageFactory.initElements(driver, Customer_Registration_Page_Objects.class);
+		SCRegistration = PageFactory.initElements(driver, Customer_Module_Page_Objects.class);
 		Login = PageFactory.initElements(driver, Login_page_objects.class);
 	}
 	
