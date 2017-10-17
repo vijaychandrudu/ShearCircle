@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Customer_Registration_Page_Objects{
+public class Customer_Module_Page_Objects{
 
 	/*public String LOGIN = ".//*[@id='navbar-collapse-1']/span/a[1]";
 	public String USERNAME = "username";
