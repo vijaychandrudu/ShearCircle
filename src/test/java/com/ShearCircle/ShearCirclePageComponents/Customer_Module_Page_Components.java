@@ -26,7 +26,7 @@ public class Customer_Module_Page_Components extends StaticVariables {
 		SCRegistration = PageFactory.initElements(driver, Customer_Module_Page_Objects.class);
 		Login = PageFactory.initElements(driver, Login_page_objects.class);
 	}
-	
+	//Application launch
 	public void launchbowser_application(){
 		String baseUrl = null;
 	    try {   
