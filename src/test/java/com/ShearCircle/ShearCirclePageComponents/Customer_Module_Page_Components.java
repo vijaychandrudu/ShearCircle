@@ -34,12 +34,14 @@ public class Customer_Module_Page_Components extends StaticVariables {
 	    	browser.loaddata(TestDataPath);
 	    	baseUrl = browser.getdata("TestBedURL");
 		    driver.get(baseUrl + "");
-		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);    
+		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  
+		    //driver.wait(5);
 		    String apptitle = driver.getTitle();
 		    if (apptitle.equalsIgnoreCase(baseUrl)){
 		    System.out.println("Browser Tilte:"+apptitle);     
 		    }		    
-			if(browser.elmentisdisplayed(Login.ShearCircle_Image)) {
+			
+		    if(browser.elmentisdisplayed(Login.Home_ShearCircle_Image)) {
 				 System.out.println("ShearCircle Image displayed");
 			 }else {
 				 System.out.println("ShearCircle Image not displayed");
@@ -62,9 +64,9 @@ public class Customer_Module_Page_Components extends StaticVariables {
 		Password = browser.getdata("Password");
 		
 		try{
-			if(browser.elmentisdisplayed(Login.JoinOurCircle_Link)) {
+			if(browser.elmentisdisplayed(Login.Home_JoinOurCircle_Link)) {
 				browser.reportscomtep("Passed", "Verify JoinCircle link is displayed"  , "JoinCircle link should be displayed", "JoinCircle link is displayed");
-				browser.click(Login.JoinOurCircle_Link);
+				browser.click(Login.Home_JoinOurCircle_Link);
 				//browser.wait(5);
 				if(browser.elmentisdisplayed(SCRegistration.CR_customerJoinCircle_Link)){
 					browser.reportscomtep("Passed", "Verify Customer JoinCircle link is displayed"  , "Customer JoinCircle link should be displayed", "Customer JoinCircle link is displayed");
@@ -103,6 +105,89 @@ public class Customer_Module_Page_Components extends StaticVariables {
 		
 	}
 	
+	public void ShearCircle_Verify_Customer_forgotPassword(String p_in_Valid_or_Invalid, String p_in_FinalAction) {
+		String customerValidEmail = null;		
+		String customerInValidEmail = null;
+		String invalid_Message;
+		String valid_Message;
+		
+		browser.loaddata(TestDataPath);
+		customerValidEmail = browser.getdata("customerValidEmail");
+		customerInValidEmail = browser.getdata("customerInValidEmail");
+		invalid_Message = "No records for the Username";
+		valid_Message = "Password Reset Instructions Sent Successfully";
+		String getmessage = null;
+		try{
+			if(browser.elmentisdisplayed(Login.Home_Login_Link)) {
+				browser.reportscomtep("Passed", "Verify Login link is displayed"  , "Login link should be displayed", "Login link is displayed");
+				browser.click(Login.Home_Login_Link);
+				//browser.wait(5);
+				if(browser.elmentisdisplayed(Login.Login_forgotPassword_Link)){
+					browser.reportscomtep("Passed", "Verify Forgotpassword link is displayed"  , "Forgotpassword link should be displayed", "Forgotpassword link is displayed");
+					browser.click(Login.Login_forgotPassword_Link);
+					//browser.wait(5);
+					if(browser.elmentisdisplayed(Login.ResetPassword_Header)){
+						browser.reportscomtep("Passed", "Verify Reset Password is displayed"  , "Reset Password should be displayed", "Reset Password is displayed");
+						
+						browser.Verify_elmentisdisplayed_Report(Login.ResetPassword_UserName_textbox, "UserName textbox");
+						browser.Verify_elmentisdisplayed_Report(Login.ResetPassword_SendInstruction_Link, "Send Instruction ForgotPassword Button");
+						browser.Verify_elmentisdisplayed_Report(Login.ResetPassword_Cancel_textbox, "Cancel Link");
+						
+						if(p_in_Valid_or_Invalid.equalsIgnoreCase("Valid")) {
+							browser.sendkeys(Login.ResetPassword_UserName_textbox,customerValidEmail);
+							
+						}else if(p_in_Valid_or_Invalid.equalsIgnoreCase("InValid")){
+							browser.sendkeys(Login.ResetPassword_UserName_textbox,customerInValidEmail);
+						}
+						
+						switch(p_in_FinalAction) {
+							case "Click Send instructions to reset password":
+								browser.click(Login.ResetPassword_SendInstruction_Link);
+								
+								if(p_in_Valid_or_Invalid.equalsIgnoreCase("Valid")) {
+									getmessage = browser.elementgettext(Login.ResetPassword_ValidMessage_text);
+									if(valid_Message.equalsIgnoreCase(getmessage)) {
+										browser.reportscomtep("Passed", p_in_FinalAction+" and Verify Reset Password Successful message is displayed"  , "Reset Password Successful message should be displayed", "Reset Password Successful message displayed as : "+ getmessage);
+									}else {
+										browser.reportscomtep("Failed", p_in_FinalAction+ " and Verify Reset Password Successful message is displayed"  , "Reset Password Successful message should be displayed", "Reset Password Successful message Not displayed as :"+valid_Message);
+									}								
+								}else if(p_in_Valid_or_Invalid.equalsIgnoreCase("InValid")){
+									getmessage = browser.elementgettext(Login.ResetPassword_InvalidMessage_text);
+									if(invalid_Message.equalsIgnoreCase(getmessage)) {
+										browser.reportscomtep("Passed", p_in_FinalAction+" and Verify Reset Password invalid message is displayed"  , "Reset Password invalid message should be displayed", "Reset Password invalid message displayed as : "+ getmessage);
+									}else {
+										browser.reportscomtep("Failed", p_in_FinalAction+" and Verify Reset Password invalid message is displayed"  , "Reset Password invalid message should be displayed", "Reset Password invalid message Not displayed as : "+ invalid_Message);
+									}
+								}
+									
+								break;
+							case "Click Cancel":	
+								browser.click(Login.ResetPassword_Cancel_textbox);
+								if(browser.elmentisdisplayed(Login.Login_forgotPassword_Link)) {
+									browser.reportscomtep("Passed", p_in_FinalAction+ " and Verify Customer navigate Reset Password page"  , "Customer should be navigate Reset Password page", "Customer navigated Reset Password page");
+								}else {
+									browser.reportscomtep("Failed", p_in_FinalAction+ " and Verify Customer navigate Reset Password page"  , "Customer should be navigate Reset Password page", "Customer Not navigated Reset Password page");
+									
+								}
+							break;
+						}					
+						
+						
+					}else {
+						browser.reportscomtep("Failed", "Verify Reset Password is displayed"  , "Reset Password should be displayed", "Reset Password is Not displayed");
+					}
+						
+				}else {
+					browser.reportscomtep("Failed", "Verify Forgotpassword link is displayed"  , "Forgotpassword link should be displayed", "Forgotpassword link is displayed");
+				}
+			}else {
+				browser.reportscomtep("Failed", "Verify Login link is displayed"  , "Login link should be displayed", "Login link is not displayed");
+			}
+			
+		}catch(Exception e){
+			System.out.println("Error description: " + e.getStackTrace() );
+		}	
+	}
 	
 	public void Professional_Registration(){
 		
@@ -121,9 +206,9 @@ public class Customer_Module_Page_Components extends StaticVariables {
 		Subdomain = browser.getdata("Subdomain");
 		try {	
 		
-		if(browser.elmentisdisplayed(Login.JoinOurCircle_Link)) {
+		if(browser.elmentisdisplayed(Login.Home_JoinOurCircle_Link)) {
 			browser.reportscomtep("Passed", "Verify JoinCircle link is displayed"  , "JoinCircle link should be displayed", "JoinCircle link is displayed");
-			browser.click(Login.JoinOurCircle_Link);
+			browser.click(Login.Home_JoinOurCircle_Link);
 			//browser.wait(5);
 			if(browser.elmentisdisplayed(SCRegistration.CR_customerJoinCircle_Link)){
 				browser.reportscomtep("Passed", "Verify Professional JoinCircle link is displayed"  , "Professional JoinCircle link should be displayed", "Professional JoinCircle link is displayed");

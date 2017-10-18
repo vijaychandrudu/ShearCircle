@@ -40,6 +40,8 @@ public class Customer_Module_Page_Objects{
 	@FindBy(xpath="//div/h5/a/u['Sign in']")
 	public WebElement CR_signin_button;
 	
+	
+	
 	@FindBy(xpath="//*[@id='firstname']")
     public WebElement PF_FirstName_textbox;
 	
