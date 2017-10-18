@@ -88,7 +88,7 @@ public void scrollintoviewelement(WebElement element) {
 	public void Verify_elmentisdisplayed_Report(WebElement element, String Reporttext) {
 
 		try {
-			if (element.isDisplayed() && element.isEnabled()) {
+			if (element.isDisplayed()) {
 				this.reportscomtep("Passed", "Verify The Element is " + Reporttext + "displayed",
 						"The Element is " + Reporttext + "should be displayed",
 						"The Element is " + Reporttext + "displayed");

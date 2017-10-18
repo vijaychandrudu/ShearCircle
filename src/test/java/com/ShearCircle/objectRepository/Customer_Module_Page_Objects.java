@@ -1,4 +1,4 @@
-package com.ShearCircle.ObjectRepository;
+package com.ShearCircle.objectRepository;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

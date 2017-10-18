@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.ShearCircle.TestScenarios.SubscriberLogin">
+      <class name="com.ShearCircle.TestScenarios.CustomerModule">
         <methods>
           <include name="afterClass"/>
-          <include name="beforeclass"/>
           <include name="StatusScreenShots"/>
-          <include name="LoginAsSubscriber"/>
+          <include name="beforeclass"/>
+          <include name="Customer_ForgotPassword_scenario"/>
         </methods>
-      </class> <!-- com.ShearCircle.TestScenarios.SubscriberLogin -->
+      </class> <!-- com.ShearCircle.TestScenarios.CustomerModule -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

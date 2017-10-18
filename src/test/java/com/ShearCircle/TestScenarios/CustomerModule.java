@@ -2,10 +2,10 @@ package com.ShearCircle.TestScenarios;
 
 import org.testng.annotations.Test;
 
-import com.ShearCircle.ObjectRepository.SubscriberElementLocaters;
 import com.ShearCircle.ShearCirclePageComponents.Customer_Module_Page_Components;
 import com.ShearCircle.Utilities.CommonFunctions;
 import com.ShearCircle.Utilities.StaticVariables;
+import com.ShearCircle.objectRepository.SubscriberElementLocaters;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;

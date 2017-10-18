@@ -6,11 +6,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-
-import com.ShearCircle.ObjectRepository.Customer_Module_Page_Objects;
-import com.ShearCircle.ObjectRepository.Login_page_objects;
 import com.ShearCircle.Utilities.StaticVariables;
 import com.ShearCircle.Utilities.Web_Browser;
+import com.ShearCircle.objectRepository.Customer_Module_Page_Objects;
+import com.ShearCircle.objectRepository.Login_page_objects;
 
 public class Customer_Module_Page_Components extends StaticVariables {
 	

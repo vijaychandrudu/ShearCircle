@@ -1,4 +1,4 @@
-package com.ShearCircle.ObjectRepository;
+package com.ShearCircle.objectRepository;
 
 public class SubscriberElementLocaters {
 
